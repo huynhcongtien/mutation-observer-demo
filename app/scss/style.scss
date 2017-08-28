@@ -1,0 +1,38 @@
+html, body, .console, .container {
+    height: 100%;
+}
+body {
+    overflow-x: hidden;
+    padding-bottom: 110px;
+}
+#target {
+    border: 1px solid #ff0000;
+    padding: 0 5px;
+    height: 35px;
+    line-height: 35px;
+    margin: 5px 0 0;
+    label {
+        margin: 0 10px;
+    }
+}
+.control {
+    margin: 15px 0;
+}
+.console {
+    border: 1px solid #ccc;
+    overflow: auto;
+    .row {
+        border-bottom: 1px solid #ccc;
+        margin: 0;
+        padding: 10px 5px;
+        &:last-child {
+            border-bottom: none;
+        }
+        &:nth-of-type(even) {
+            background-color: #f9f9f9
+        }
+        p {
+            margin: 0
+        }
+    }
+}

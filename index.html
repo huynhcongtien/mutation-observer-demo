@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link type="text/css" rel="stylesheet" href="public/css/core.min.css"/>
+        <script type="text/javascript" src="public/js/core.min.js"></script>
+
+        <script type="text/javascript">
+            $.get('.env', function(data) {
+                var lines   = data.split('\n'),
+                    data    = null,
+                    env     = {};
+
+                lines.forEach(function(line) {
+                    if (line !== '') {
+                        data = line.split('=');
+                        env[data[0]] = $.trim(data[1]);
+                    }
+                });
+
+                if (env.APP_ENV === 'development') {
+                    $('head').append('<link type="text/css" rel="stylesheet" href="build/css/style.css"/>');
+                    $('head').append('<script type="text/javascript" src="app/js/script.js"></' + 'script>');
+                    $('head').append('<script type="text/javascript" src="//localhost:' +
+                        env.LIVERELOAD_PORT + '/livereload.js"></' + 'script>'
+                    );
+                }
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="target" class="cl-target" foo="bar" data-id="123" contenteditable>Data demo</div>
+
+            <div class="control">
+                <button id="change_character" class="btn btn-default">Change characterData</button>
+                <button id="change_child_character" class="btn btn-default">Change child character</button>
+                <button id="add_element" class="btn btn-default">Add element</button>
+                <button id="change_attr_data" class="btn btn-default">Change attr "data-id"</button>
+                <button id="change_attr_foo" class="btn btn-default">Change attr "foo"</button>
+
+                <label>
+                    <input type="checkbox" id="stop_listen"/>
+                    Stop Listening!
+                </label>
+            </div>
+
+            <div class="console"></div>
+        </div>
+    </body>
+</html>
