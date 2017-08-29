@@ -23,9 +23,9 @@
 
                 if (env.APP_ENV === 'development') {
                     $('head').append('<link type="text/css" rel="stylesheet" href="build/css/style.css"/>');
-                    $('head').append('<script type="text/javascript" src="app/js/script.js"></' + 'script>');
+                    $('head').append('<script type="text/javascript" src="app/js/script.js"><\/script>');
                     $('head').append('<script type="text/javascript" src="//localhost:' +
-                        env.LIVERELOAD_PORT + '/livereload.js"></' + 'script>'
+                        env.LIVERELOAD_PORT + '/livereload.js"><\/script>'
                     );
                 }
             });
