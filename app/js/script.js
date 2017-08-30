@@ -58,9 +58,9 @@ $(function() {
                 contents.push('Targer class: <span class="label label-default">' + mutationRecord.target.className + '</span>');
             }
 
-            if (mutationRecord.removedNodes.length) {
-                var nodeText = '';
+            var nodeText = '';
 
+            if (mutationRecord.removedNodes.length) {
                 $.each(mutationRecord.removedNodes, function(index, node) {
                     if (node.nodeName === '#text') {
                         nodeText = node.textContent;
@@ -75,8 +75,6 @@ $(function() {
             }
 
             if (mutationRecord.addedNodes.length) {
-                var nodeText = '';
-
                 $.each(mutationRecord.addedNodes, function(index, node) {
                     if (typeof  node.outerText !== 'undefined') {
                         nodeText = node.outerText;
@@ -92,13 +90,13 @@ $(function() {
 
             switch (mutationRecord.type) {
                 case 'attributes':
-                    contents.push('Target attribute <span class="label label-default">'
-                        + mutationRecord.attributeName + '</span>:'
-                        + mutationRecord.target.attributes[mutationRecord.attributeName].value
+                    contents.push('Target attribute <span class="label label-default">' +
+                        mutationRecord.attributeName + '</span>:' +
+                        mutationRecord.target.attributes[mutationRecord.attributeName].value
                     );
 
-                    contents.push('Old attribute value <span class="label label-default">'
-                        + mutationRecord.attributeName + '</span>: ' + mutationRecord.oldValue
+                    contents.push('Old attribute value <span class="label label-default">' +
+                        mutationRecord.attributeName + '</span>: ' + mutationRecord.oldValue
                     );
                     break;
 
